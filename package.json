@@ -1,0 +1,23 @@
+{
+  "name": "vtve-ai-games",
+  "version": "0.0.1",
+  "description": "A set of tutorial games that teach the basics of Artificial Intelligence and Machine Learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./node_modules/.bin/http-server -s -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atakyn/vtve-ai-games.git"
+  },
+  "author": "Atakyn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Atakyn/vtve-ai-games/issues"
+  },
+  "homepage": "https://github.com/Atakyn/vtve-ai-games#readme",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
