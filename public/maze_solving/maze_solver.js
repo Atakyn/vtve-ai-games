@@ -13,10 +13,11 @@ const config = {
     type: Phaser.AUTO,
     width: maze_size * 16,
     height: maze_size * 16,
+    parent: 'game-container',
     scene: {
         preload: preload,
         create: create,
-        update: update
+        update: update,
     }
 };
 
@@ -52,7 +53,9 @@ function create () {
         console.error('no search algorithm specified');
     }
 
+    console.info('started search function')
 	path = searchAlg();
+    console.info('search function finished execution')
 
     if (path === undefined) {
         console.error('search algorithm returned undefined (failed to find a path)');
