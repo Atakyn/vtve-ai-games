@@ -68,6 +68,9 @@ function create () {
     // place tiles
     overlay.putTileAt(S, startLoc[0], startLoc[1]);
     overlay.putTileAt(G, goalLoc[0], goalLoc[1]);
+    
+    //skip first tile
+    color_visited.shift();
 
 }
 
@@ -79,9 +82,7 @@ function update () {
 	if (frames % frameRate === 0) {
         if (color_visited.length > 0) {
     		const tile = color_visited.shift();
-            if(tile[0] != startLoc[0] || tile[1] != startLoc[1]){
-                overlay.putTileAt(V, tile[1], tile[0]);
-            }
+            overlay.putTileAt(V, tile[1], tile[0]);
         } else {
             if (path !== undefined) {
                 path.forEach(function(e) {
