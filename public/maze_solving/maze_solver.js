@@ -2,7 +2,9 @@ const maze_size = 33;
 const W = 701; // wall
 const P = 803; // path
 const V = 809; // visited
-const C = 817; // complete (actual path)
+const C = 813; // complete (actual path)
+const S = 813; // start
+const G = 951; // goal
 
 const ref = {
     'W': W,
@@ -27,6 +29,8 @@ let color_visited = [];
 let _explored = new BetterSet();
 let path;
 let levelMap = [];
+let startLoc = [1,1];
+let goalLoc = [31,31];
 
 function preload () {
 	this.load.image('game-tiles', 'tiles.png');
@@ -60,6 +64,11 @@ function create () {
     if (path === undefined) {
         console.error('search algorithm returned undefined (failed to find a path)');
     }
+
+    // place tiles
+    overlay.putTileAt(S, startLoc[0], startLoc[1]);
+    overlay.putTileAt(G, goalLoc[0], goalLoc[1]);
+
 }
 
 let frames = 0;
@@ -70,7 +79,9 @@ function update () {
 	if (frames % frameRate === 0) {
         if (color_visited.length > 0) {
     		const tile = color_visited.shift();
-            overlay.putTileAt(V, tile[1], tile[0]);
+            if(tile[0] != startLoc[0] || tile[1] != startLoc[1]){
+                overlay.putTileAt(V, tile[1], tile[0]);
+            }
         } else {
             if (path !== undefined) {
                 path.forEach(function(e) {
