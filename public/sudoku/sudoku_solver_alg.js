@@ -26,7 +26,9 @@ isMoveValid(row, col) -> tests whether the move you've ALREADY MADE at (row, col
 getNextEmptyCell() -> returns the next empty cell on the sudoku board
 
 
-For example, basic mode allows you to use any of the functions listed above.
+For example, basic mode allows you to use any of the functions listed above. 
+Intermediate mode allows you to use any functions except the basic ones.
+Etc.
 
 
 Note 0 <= row, col <= 8 and 1 <= value <= 9
@@ -35,7 +37,7 @@ Note 0 <= row, col <= 8 and 1 <= value <= 9
 
 // this is where put your solution
 // the sudoku board updates automatically based on 
-// setValueAt(row, col, val) and removeValueAt(rowm col)
+// setValueAt(row, col, val) and removeValueAt(row, col)
 // should return whether or not you found a solution
 function solveSudoku() {
    return false;
