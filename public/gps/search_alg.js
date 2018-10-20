@@ -26,7 +26,7 @@ function ucs() {
 }
 
 function astar() {
-    let toVisit = new PriorityQueue();
+    let toVisit = new PriorityQueue(); 
     
     // our start state, and the path to get there (which is go to start state)
     toVisit.add({
