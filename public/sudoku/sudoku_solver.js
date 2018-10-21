@@ -66,6 +66,11 @@ function _update(row, col, val) {
     setTimeout(function() {
         document.getElementById(cell).innerHTML = val || grid[row][col] || "";
     }, 0);
+
+    // Change color of the elements that are modified
+    if(document.getElementById(cell).innerHTML == val || document.getElementById(cell).innerHTML == ""){
+        document.getElementById(cell).classList.add('highlight'); // The highlight color can be changed in the sudoku_solver css file
+    }
 }
 
 // the documentation for all functions below can be found in `sudoku_solver_alg.js`
