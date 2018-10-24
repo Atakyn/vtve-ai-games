@@ -1,0 +1,33 @@
+body {
+    margin: 50px;
+}
+
+.highlight {
+    color: #FF0000;
+}
+
+#ttt-container {
+    border-top: 6px solid #444;
+    border-left: 6px solid #444;
+    border-collapse: collapse;
+}
+
+.row-0, .row-1, .row-2 {
+    border-bottom: 2px solid #444;
+    border-right: 6px solid #444;
+}
+
+.row-2 {
+    border-bottom: 6px solid #444;
+}
+
+.col-0, .col-1, .col-2 {
+    width: 64px;
+    height: 64px;
+    border-right: 2px solid #444;
+    text-align: center;
+}
+
+.col-2 {
+    border-right: 6px solid #444;
+}
