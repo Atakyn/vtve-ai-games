@@ -14,6 +14,7 @@ function doAITurn() {
     if (state !== NONE) return getScore(state, 0);
 
     let best_score = -10000000;
+    let beta = 10000000;
     let best_row = -1;
     let best_col = -1;
 
@@ -25,7 +26,7 @@ function doAITurn() {
             if (isCellEmpty(row, col)) {
                 makeAIMove(row, col);
 
-                const score = minValue(1);
+                const score = minValue(1, best_score, beta);
                 if (score > best_score) {
                     best_row = row;
                     best_col = col;
@@ -41,7 +42,7 @@ function doAITurn() {
     makeAIMove(best_row, best_col);
 }
 
-function maxValue(moves_made) {
+function maxValue(moves_made, alpha, beta) {
     const state = getGameState();
 
     // is the game over?
@@ -56,8 +57,11 @@ function maxValue(moves_made) {
             // CSP: constraints
             if (isCellEmpty(row, col)) {
                 makeAIMove(row, col);
-                best_score = Math.max(best_score, minValue(moves_made + 1));
+                best_score = Math.max(best_score, minValue(moves_made + 1, alpha, beta));
                 removeValueAt(row, col);
+                
+                if (best_score >= beta) return best_score;
+                alpha = Math.max(alpha, best_score);
             }
         }
     }
@@ -65,7 +69,7 @@ function maxValue(moves_made) {
     return best_score;
 }
 
-function minValue(moves_made) {
+function minValue(moves_made, alpha, beta) {
     const state = getGameState();
 
     // is the game over?
@@ -82,6 +86,9 @@ function minValue(moves_made) {
                 makePlayerMove(row, col);
                 best_score = Math.min(best_score, maxValue(moves_made + 1));
                 removeValueAt(row, col);
+
+                if (best_score <= alpha) return best_score;
+                beta = Math.min(beta, best_score);
             }
         }
     }

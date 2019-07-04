@@ -40,11 +40,13 @@ for (i = 0; i < 9; i++) {
 }
 
 // call the sudoku solver function
+
 if (solveSudoku()) {
     console.info("Solution found");
 } else {
     console.info("No solution found");
 }
+
 
 // displayed the solved board
 for (i = 0; i < 9; i++) {

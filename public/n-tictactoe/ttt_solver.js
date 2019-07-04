@@ -10,7 +10,7 @@ const AI_WON = 1;
 const TIE = 2;
 const NONE = 3;
 
-const SIZE = 4;
+const SIZE = 7;
 
 let grid = [];
 
